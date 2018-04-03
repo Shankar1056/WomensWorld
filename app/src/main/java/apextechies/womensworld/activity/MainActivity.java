@@ -1,7 +1,8 @@
 package apextechies.womensworld.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -13,12 +14,11 @@ import java.util.ArrayList;
 
 import apextechies.womensworld.R;
 import apextechies.womensworld.adapter.CategoryAdapter;
+import apextechies.womensworld.allinterface.OnClick;
 import apextechies.womensworld.allinterface.OnTaskCompleted;
 import apextechies.womensworld.model.CategoryModel;
 import apextechies.womensworld.utilz.Download_web;
 import apextechies.womensworld.webservices.WebServices;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +56,14 @@ public class MainActivity extends AppCompatActivity {
                             JSONObject jo = array.getJSONObject(i);
                             arrayList.add(new CategoryModel(jo.optString("id"), jo.optString("cat_name")));
                         }
-                        rv_cat.setAdapter(new CategoryAdapter(MainActivity.this, arrayList));
+                        rv_cat.setAdapter(new CategoryAdapter(MainActivity.this, arrayList, new OnClick() {
+                            @Override
+                            public void onClick(int pos) {
+                                startActivity(new Intent(MainActivity.this, VideoList.class)
+                                .putExtra("name", arrayList.get(pos).getCat_name())
+                                .putExtra("id", arrayList.get(pos).getId()));
+                            }
+                        }));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

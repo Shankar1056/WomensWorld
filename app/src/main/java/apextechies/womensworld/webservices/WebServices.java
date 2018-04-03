@@ -6,6 +6,7 @@ package apextechies.womensworld.webservices;
 
 public class WebServices {
 
+    public static final String VIDEO_LINK = "https://img.youtube.com/vi/";
     public static final String BASE_URl = "http://apextechies.com/jebin/index.php/";
     public static final String CATEGORY = BASE_URl+"get_Category";
     public static final String PRODUCT = BASE_URl+"get_Product";

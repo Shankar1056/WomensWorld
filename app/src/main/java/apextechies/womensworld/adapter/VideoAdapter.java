@@ -6,25 +6,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
+
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import apextechies.womensworld.R;
 import apextechies.womensworld.allinterface.OnClick;
-import apextechies.womensworld.model.CategoryModel;
+import apextechies.womensworld.model.VideoModel;
+import apextechies.womensworld.webservices.WebServices;
 
 /**
- * Created by shankar on 3/4/18.
+ * Created by Shankar on 4/3/2018.
  */
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
 
     private Context context ;
-    private ArrayList<CategoryModel> list;
+    private ArrayList<VideoModel> list;
     private OnClick onClick ;
 
-    public CategoryAdapter(Context context, ArrayList<CategoryModel> list, OnClick onClick) {
+    public VideoAdapter(Context context, ArrayList<VideoModel> list, OnClick onClick) {
         this.context=context;
         this.list=list;
         this.onClick=onClick;
@@ -34,7 +38,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dot, parent, false);
+        final View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.videoitem_dot, parent, false);
 
         return new ViewHolder(itemView);
     }
@@ -42,9 +46,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Log.e("inside","change");
-        //Glide.with(context).load(list.get(position).getProduct_image()).into(holder.img_dot);
-
-        holder.cat_name.setText(list.get(position).getCat_name());
+        Picasso.with(context).load(WebServices.VIDEO_LINK+list.get(position).getVideo_id()+"/0.jpg").into(holder.cat_image);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,12 +67,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder  {
 
-        TextView cat_name;
+        ImageView cat_image;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            cat_name=(TextView) itemView.findViewById(R.id.cat_name);
+            cat_image=(ImageView) itemView.findViewById(R.id.cat_image);
 
 
         }
