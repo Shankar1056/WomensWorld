@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/WomensWorld.iml" filepath="$PROJECT_DIR$/.idea/WomensWorld.iml" />
-      <module fileurl="file://D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\WomensWorld.iml" filepath="D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\WomensWorld.iml" />
-      <module fileurl="file://D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\.idea\WomensWorld.iml" filepath="D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\.idea\WomensWorld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WomensWorld.iml" filepath="$PROJECT_DIR$/WomensWorld.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\app\app.iml" filepath="D:\AllAndroidApp\All Clients work\WomensWorld\WomensWorld\app\app.iml" />
     </modules>
   </component>
 </project>
